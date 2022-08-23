@@ -5,7 +5,6 @@ using DG.Tweening;
 
 public class SpeechBubble : MonoBehaviour 
 {
-    SpriteRenderer requestBubble;
     SpriteRenderer textContainer;
     TextMeshPro textMesh;
     Vector3 originalPos;
@@ -16,7 +15,6 @@ public class SpeechBubble : MonoBehaviour
 
     private void Start() {
         originalPos = transform.position;
-        requestBubble = transform.parent.Find("Request").GetComponent<SpriteRenderer>();
         textContainer = GetComponentsInChildren<SpriteRenderer>()[1];
         textMesh = GetComponentInChildren<TextMeshPro>();
         DOTween.Init();
@@ -25,10 +23,6 @@ public class SpeechBubble : MonoBehaviour
     }
 
     private void LateUpdate() {
-        transform.position =
-            requestBubble.bounds.center + Vector3.up * (requestBubble.bounds.extents.y)
-        ;
-
         textContainer.size = textMesh.bounds.size + padding * new Vector3(3,1,1);
     }
 
