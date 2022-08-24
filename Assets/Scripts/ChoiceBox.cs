@@ -22,11 +22,11 @@ public class ChoiceBox : StaticInstance<ChoiceBox>
     }
     public void OnChoiceSelected(ChoiceItem choice)
     {
-        print($"Choice {choice} selected.");
         choice.background.color = choiceHover;
 
         int index = choice.transform.GetSiblingIndex();
-        DialogueManager.Instance.MakeChoice(index);
+        print($"Choice {index} selected.");
+        Storyteller.Instance.MakeChoice(index-1);
 
         _parentContainer.SetActive(false);
     }

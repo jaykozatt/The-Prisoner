@@ -16,6 +16,9 @@ public class InkScript
     public List<Choice> choices {
         get => _story.currentChoices;
     }
+    public List<string> currentTags {
+        get => _story.currentTags;
+    }
 
     public void Initialize() {
         _story = new Story(inkAsset.text);
